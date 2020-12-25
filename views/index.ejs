@@ -1,0 +1,37 @@
+<!-- 서버 접속시 가장 먼저 보이는 페이지 입니다.-->
+
+<!DOCTYPE html> 
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+		<% if(session.login_isvalid == false){ %>
+			<script>
+				alert('로그인 양식이 잘못되었습니다.');
+			</script>
+		<% }%>
+
+	</head>
+	<body>
+		<h1>환경 정보 수집 시스템</h1>
+		<br/>
+
+		<form action="/login" method="POST">
+			<table>
+				<tr>
+					<td>ID : </td>
+					<td><input type="text" name="id" id="id_input_check" placeholder="ID를 입력하세요..."/></td>
+				</tr>
+				<tr>
+					<td>PW : </td>
+					<td><input type="password" name="pw" id="pw_input_check" placeholder="비밀번호를 입력하세요...."></td>
+				</tr>
+			</table>
+			<input type="submit" value="login" /> 
+		</form>
+		<a href='/signup'>signup</a>
+		<% if(session.login == false) { %>
+			<p>Log in Plz....</p>
+		<% } %>
+	</body>
+</html>
